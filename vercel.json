@@ -2,9 +2,9 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "@vercel/react"
+        "use": "@vercel/static-build"
       }
     ],
-    "outputDirectory": "docs"
+    "outputDirectory": "build"
   }
   
