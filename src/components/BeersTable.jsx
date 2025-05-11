@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React from 'react';
 
 function BeersTable({ onSeleccionar }) {
   const cervezas = [{
@@ -73,26 +74,30 @@ function BeersTable({ onSeleccionar }) {
   return (
     <div style={{ padding: '2rem', backgroundColor: '#111', color: 'white', fontFamily: 'Arial' }}>
       <h2 style={{ color: 'white' }}>🍺 Beers</h2>
-      <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
-        <thead>
-          <tr>
-            <th style={estiloCabecera}>Id</th>
-            <th style={estiloCabecera}>Nombre</th>
-            <th style={estiloCabecera}>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cervezas.map((cerveza) => (
-            <tr key={cerveza.id}>
-              <td style={estiloCelda}>{cerveza.id}</td>
-              <td style={estiloCelda}>{cerveza.nombre}</td>
-              <td style={estiloCelda}>
-                <button onClick={() => consultar(cerveza)} style={estiloBoton}>Consultar</button>
-              </td>
+      {cervezas.length === 0 ? (
+        <p>Cargando cervezas...</p>
+      ) : (
+        <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
+          <thead>
+            <tr>
+              <th style={estiloCabecera}>Id</th>
+              <th style={estiloCabecera}>Nombre</th>
+              <th style={estiloCabecera}>Acción</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {cervezas.map((cerveza) => (
+              <tr key={cerveza.id}>
+                <td style={estiloCelda}>{cerveza.id}</td>
+                <td style={estiloCelda}>{cerveza.name}</td>
+                <td style={estiloCelda}>
+                  <button onClick={() => consultar(cerveza)} style={estiloBoton}>Consultar</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }
