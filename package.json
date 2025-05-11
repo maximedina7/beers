@@ -14,7 +14,7 @@
     "react-dom": "^19.1.0",
     "react-scripts": "^5.0.1"
   },
-  "homepage": "https://maximedina7.vercel.app",
+
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@types/react": "^19.1.2",
